@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personalizar</title>
+    <style>
+        body {
+            background-color: #ffcccb;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            color: #333;
+        }
+        .container {
+            background-color: #fff;
+            padding: 40px;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            width: 80%;
+            max-width: 800px;
+        }
+        h1 {
+            color: #ff69b4;
+        }
+        textarea {
+            width: 100%;
+            height: 650px;
+            margin-bottom: 20px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        input[type="file"] {
+            margin-bottom: 20px;
+        }
+        .image-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+        }
+        .image-container img {
+            max-width: 100px;
+            max-height: 100px;
+            border-radius: 5px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+        }
+        button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            background-color: #ff69b4;
+            color: #fff;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:hover {
+            background-color: #ff1493;
+        }
+    </style>
+    <script>
+        function previewImages() {
+            const fileInput = document.querySelector('input[type="file"]');
+            const imageContainer = document.querySelector('.image-container');
+            imageContainer.innerHTML = '';
+            Array.from(fileInput.files).forEach(file => {
+                const reader = new FileReader();
+                reader.onload = e => {
+                    const img = document.createElement('img');
+                    img.src = e.target.result;
+                    imageContainer.appendChild(img);
+                };
+                reader.readAsDataURL(file);
+            });
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h1>For you</h1>
+        <form>
+            <h1><textarea placeholder="Bueno pues como por texto no me pongo nervioso pues te toca leer y perdón por tanto texto y tan cursi.
+
+Bueno ya supondrás para que es esto y eso pero bueno que desde que desde que eras compañera de antes me caías bien y eso pero nunca pensé en llegar a este punto, pero desde el viaje de Italia me di cuenta de que contigo me he sentido muy bien, muy cómodo y nunca me había sentido así, además era en un momento que no buscaba nada con nadie pero me di cuenta de que contigo si porque hacías sentir bien y me lo pasaba bien contigo, cuando jugamos al monopoli o fuimos a conversano y en Italia, en el viaje de vuelta estuvimos hablando todo el viaje siempre con tema de conversación y me di cuenta que eso nunca me había pasa y además me sentía muy cómodo. Después de volver de Italia yo pensaba que era imposibles y no te escribí, pero un día dije que si no arriesgo no gano y efectivamente arriesgué y acabé ganando. 
+
+Al final acabamos los dos hablando todos los días, empezamos yéndonos a las 23 luego hasta la 1-2 y ya hasta las 5, lo que nunca antes había echo. Pero bueno después de todo yo ya decía que iba a venir verano y no iba a pasar nada estaba ya desilusionado porque iba a llegar verano y se iba a quedar ahí pero bueno un día dijimos de quedar y pues bueno no tuvimos vergüenza ninguno aunque íbamos los dos con miedo pero al final se nos quitó ese miedo y acabamos quedando más días, como el que cogimos un bus ramdom y nos dejó en la garena y después ese día nos dinos nuestro primer beso 😌, luego cuando fuimos a un parque en el chorrillo en unos bancos un poco raretes pero nos los pasamos bien igual y cuando fuimos a Madrid y estuvimos casi 3 horas en el retiro y se pasó volando y luego perdimos el tren de vuelto y todo 😔 o cuando la última vez se nos sentaron unos viejecillos al lado.
+
+                Pero bueno después de todo eso que hemos pasado desde que nos conocimos he visto que no me he sentido así nunca con nadie y que bueno que perdón por tanto texto y un poco cursi el texto, pero después de todo me he dado cuenta de que pues tendremos que arriesgar a tener algo más que si los dos ponemos de nuestra parte va a funcionar muy bien, aunque seguramente algún día peleemos o algo pero siempre voy a intentar solucionarlo para estar bien y aunque a veces me cueste muchas cosa (como esto) yo lo intento hacer, pero bueno ya después de todo este texto perdón, pero si te lo decía hablando me iba a poner nervioso y ni de broma te decía todo estoo"></textarea> </h1>
+            <input type="file" accept="image/*" multiple onchange="previewImages()">
+            <div class="image-container"></div>
+            <button type="submit">¿Aceptar?</button>
+        </form>
+    </div>
+</body>
+</html>
